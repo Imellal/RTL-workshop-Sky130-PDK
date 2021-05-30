@@ -141,6 +141,10 @@ After synthesis, we execute the following command :
 then link it to 'liberty' and use show:
 <img width="945" alt="abrc" src="https://user-images.githubusercontent.com/48953224/120107902-c99c8080-c130-11eb-9baf-6c09596061c4.png">
 
+In opt_check2.v, the impact of simplifiv=cation will shown on RTL
+After adapting to liberty library with 'abc'command,  'opt_clean -purge' should be executed 
+The results are shown next:
+<img width="955" alt="abc" src="https://user-images.githubusercontent.com/48953224/120113558-01afbd80-c149-11eb-940e-f8890aabaaf0.png">
 
 
 **-  Day 4: GLS, blocking vs non-blocking and Synthesis-Simulation mismatch**
