@@ -100,9 +100,24 @@ If we have a design using a same intance in multiple places, we can synthesize o
 
 We alos use this to divide the complex design for better understanding and control it.
 
+Various Flop Coding Styles and optimization
 
     Various Flop Coding Styles and optimization
+    idir@ubuntu-m-2vcpu-16gb-sgp1-01:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog dff_asyncres.v tb_dff_asyncres.v
+    idir@ubuntu-m-2vcpu-16gb-sgp1-01:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ ./a.out
+    VCD info: dumpfile tb_dff_asyncres.vcd opened for output.
+    idir@ubuntu-m-2vcpu-16gb-sgp1-01:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ gtkwave tb_dff_asyncres.vcd
+    GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+    
+    [0] start time.
+    [3000000] end time.
+
  Open the file dff_asyncres.v and its assigned testbench tb_asyncres.v and proceed to the regulal flow for synthesis
+ The gtkwave simulator will show the simulation results:
+ <img width="497" alt="simasynres" src="https://user-images.githubusercontent.com/48953224/120105590-8f7ab100-c127-11eb-87ec-639dbae1febe.png">
+
+
+ 
  
 
 
