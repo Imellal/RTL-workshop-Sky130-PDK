@@ -89,6 +89,23 @@ after the 'abc' command. Use the 'flatten' to to extend the modules then use 'sh
 <img width="963" alt="flatten" src="https://user-images.githubusercontent.com/48953224/120092638-6e43a180-c0e2-11eb-8bee-2655413c23ab.png">
 
 
+For a multiple modules, we can do the synthesis of each module alone.
+Let load the design agian and synthesize the sub_module1. 
+Use the command: 'synth -top sub_module1'
+We will see the report showing only one used cell in the instance sub_module1.
+Use the abc then show to see the sub module1.
+If we have a design using a same intance in multiple places, we can synthesize one sub module once, then replicate it as many times you need. It saves time anad money!
+
+<img width="963" alt="flatten2" src="https://user-images.githubusercontent.com/48953224/120104665-9273a280-c123-11eb-948a-4c2111d98a4d.png">
+
+We alos use this to divide the complex design for better understanding and control it.
+
+
+    Various Flop Coding Styles and optimization
+ Open the file dff_asyncres.v and its assigned testbench tb_asyncres.v and proceed to the regulal flow for synthesis
+ 
+
+
 
 
 
