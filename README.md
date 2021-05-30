@@ -117,15 +117,12 @@ Various Flop Coding Styles and optimization
  <img width="497" alt="simasynres" src="https://user-images.githubusercontent.com/48953224/120105590-8f7ab100-c127-11eb-87ec-639dbae1febe.png">
 
 
- 
- 
-
-
-
-
 
 
 **-  Day 3: Combinational and Sequential optimization**
+
+
+
 
 **-  Day 4: GLS, blocking vs non-blocking and Synthesis-Simulation mismatch**
 
