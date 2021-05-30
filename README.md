@@ -149,5 +149,12 @@ The results are shown next:
 
 **-  Day 4: GLS, blocking vs non-blocking and Synthesis-Simulation mismatch**
 
+To run GLS, we need a netlist, the verilog models and the testbench. We submitt all these files to iverilog.
+<img width="942" alt="abrc" src="https://user-images.githubusercontent.com/48953224/120113883-8d761980-c14a-11eb-92c1-b62c4a613733.png">
+
+Now, synthesis the model and use the 'synth -top ternary_operator_mux_net.v' 
+<img width="957" alt="abc" src="https://user-images.githubusercontent.com/48953224/120114057-5d7b4600-c14b-11eb-94d8-13131bf4e3d3.png">
+
+
 **-  Day 5: Day 5 - If, case, for loop and for generate**
 
