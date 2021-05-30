@@ -121,6 +121,25 @@ Various Flop Coding Styles and optimization
 
 **-  Day 3: Combinational and Sequential optimization**
 
+In this section we will use the optimization files located in verilog_files.
+Use the command 'ls *opt*' to show all the existing files:
+<img width="933" alt="simasynres" src="https://user-images.githubusercontent.com/48953224/120107314-9d800000-c12e-11eb-91e4-6f0abc953161.png">
+
+the opt_check.v is as follows:
+    module opt_check (input a , input b , output y);
+	assign y = a?b:0;
+    endmodule
+
+Let's start with the process: load yosys and the library Liberty.
+After synthesis, we execute the following command :
+
+    yosys> opt_clean -purge
+
+    5. Executing OPT_CLEAN pass (remove unused cells and wires).
+    Finding unused cells or wires in module \opt_check..
+
+then link it to 'liberty' and use show:
+<img width="945" alt="abrc" src="https://user-images.githubusercontent.com/48953224/120107902-c99c8080-c130-11eb-9baf-6c09596061c4.png">
 
 
 
