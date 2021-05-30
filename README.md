@@ -153,7 +153,70 @@ To run GLS, we need a netlist, the verilog models and the testbench. We submitt 
 <img width="942" alt="abrc" src="https://user-images.githubusercontent.com/48953224/120113883-8d761980-c14a-11eb-92c1-b62c4a613733.png">
 
 Now, synthesis the model and use the 'synth -top ternary_operator_mux_net.v' 
+
+    yosys> write_verilog -noattr ternary_operator_mux_net.v
+
+    5. Executing Verilog backend.
+    Dumping module `\ternary_operator_mux'.
+
+    yosys> show
+
 <img width="957" alt="abc" src="https://user-images.githubusercontent.com/48953224/120114057-5d7b4600-c14b-11eb-94d8-13131bf4e3d3.png">
+
+Let's do the GLS:
+To do the GLS, we need to invoke iverilog with verilog file models
+
+    
+    yosys> read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+    1. Executing Liberty frontend.
+    Imported 428 cell types from liberty file.
+
+    yosys> abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+
+    2. Executing ABC pass (technology mapping using ABC).
+
+    yosys> exit
+
+    End of script. Logfile hash: ebd6306767
+    CPU: user 0.19s system 0.01s, MEM: 64.41 MB total, 35.12 MB resident
+    Yosys 0.7 (git sha1 61f6811, gcc 6.2.0-11ubuntu1 -O2 -fdebug-prefix-map=/build/yosys-OIL3SR/yosys-0.7=. -fstack-protector-strong -fPIC -Os)
+    Time spent: 91% 2x read_liberty (0 sec), 8% 1x abc (0 sec)
+    idir@ubuntu-m-2vcpu-16gb-sgp1-01:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ iverilog ../my_lib/verilog_model/primitives.v       ../my_lib/verilog_model/sky130_fd_sc_hd.v  ternary_operator_mux_net.v tb_ternary_operator_mux.v
+    idir@ubuntu-m-2vcpu-16gb-sgp1-01:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ ./a.out
+    VCD info: dumpfile tb_ternary_operator_mux.vcd opened for output.
+
+    idir@ubuntu-m-2vcpu-16gb-sgp1-01:~/VLSI/sky130RTLDesignAndSynthesisWorkshop/verilog_files$ gtkwave tb_ternary_operator_mux.vcd
+
+    GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+
+    [0] start time.
+    [300000] end time.
+      
+<img width="957" alt="abc" src="https://user-images.githubusercontent.com/48953224/120114740-91a43600-c14e-11eb-846b-c5232252722f.png">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 **-  Day 5: Day 5 - If, case, for loop and for generate**
