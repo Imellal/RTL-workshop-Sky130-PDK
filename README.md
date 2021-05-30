@@ -54,7 +54,7 @@ The next step is to synthesis the verilog file using the command line: 'synth -t
 
 ![image](https://user-images.githubusercontent.com/48953224/120091085-adb7c100-c0d5-11eb-8634-98283cc751fd.png)
 
-Now, you can generate the netlist using the command 'abc liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'
+Now, you can generate the netlist using the command 'abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'
 abc is the command to convert the rtl file into gate level and we need to specify the library file to be used. 
 It shows all the cells and the resurces used. 
 We can use the command 'show' to show the graphical logic that has beed realized.
@@ -64,12 +64,34 @@ We can use the command 'show' to show the graphical logic that has beed realized
 
 
 
-
-
-
-
-
 **-  Day 2: Timing library hierarchical vs flat synthesis and efficient flop coding styles**
+
+In this session, you're going to work on the module: multiple_modules.v and tb_multiple_modules.v
+
+Launch yosys then read the liberty file with :'yosys' then 'read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'
+then 'read_verilog multiple_modules.v'
+'synth -top multiple_modules'
+the reoport shows all the resource used in details.
+Now usse 'abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'
+
+If you use 'show' to see the module, yosys will show an error because it's a multiple modules.
+To see the netlist, you should use 'show multiple_modules", you need to specify the name of the module.
+
+<img width="963" alt="multiple module" src="https://user-images.githubusercontent.com/48953224/120092383-405d5d80-c0e0-11eb-8b31-343590309c76.png">
+
+'flatten' is a command used to write a flat netlist. execute 'flatten' on the this module.
+then use 'write_verilog multiple_modules_flat.v' to write the flatten file and open it with (!gvim) or gedit and compare with the original file.
+
+Now, let's sythesis the multiple modules and see how it works.
+Close yosys and open it again to. then execute the commands to read, and produce the netlist and synthesys. (same as prevousily)
+after the 'abc' command. Use the 'flatten' to to extend the modules then use 'show' to present the modules.
+
+<img width="963" alt="flatten" src="https://user-images.githubusercontent.com/48953224/120092638-6e43a180-c0e2-11eb-8bee-2655413c23ab.png">
+
+
+
+
+
 
 **-  Day 3: Combinational and Sequential optimization**
 
